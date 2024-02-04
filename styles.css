@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #131F39;
+    font-family: sans-serif;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 4rem 0 4rem;
+}
+nav .logo{
+    color: #E5E5E5;
+    font-size: 2.5rem;
+    font-weight:bolder;
+}
+nav a{
+    text-decoration: none;
+    margin-right: 2rem;
+    font-size: 24px;
+    color: #131F39;
+    background-color: #E5E5E5;
+    font-weight:bolder;
+    padding: 5px 15px;
+    border-radius: 4px;
+}
+nav .nav-items{
+    margin-top: 10px;
+}
+.container{
+    margin: 3.9rem 0 0 4rem;
+
+}
+.hero{
+    display: flex;
+    justify-content: space-between;
+}
+.hero .ad-copy{
+    color: #FCA311;
+    font-size: 1.2rem;
+    font-weight: bolder; 
+}
+.hero .ad-copy h3{
+    color: #d4d0d0;
+    font-size: 1.5rem;
+    font-weight:normal; 
+    margin-top: 25px;
+}
+.brand-pic{
+    display: flex;
+}
+.brand-pic img{
+    width: 170px;
+    height: 320px;
+    margin-right: 5rem;
+    transform: rotate(-7deg);
+    border-radius: 2em;
+}
+.brand-pic .desc{
+    margin: 90px 10px 0 0 ;
+    color: #E5E5E5;
+}
+.brand-pic .desc h4{
+    color: #d4d0d0;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 25px;
+}
+.ad-copy button{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #E5E5E5;
+    background-color: #a86c0c;
+    padding: 25px 25px;
+    border: none;
+    border-radius: 16px;
+    margin-top: 40px;
+}
