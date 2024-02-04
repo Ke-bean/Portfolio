@@ -68,6 +68,7 @@ nav .nav-items{
     font-size: 18px;
     font-weight: normal;
     margin-top: 25px;
+    line-height: 25px;
 }
 .ad-copy button{
     font-size: 1.8rem;
@@ -84,18 +85,74 @@ nav .nav-items{
     color: #FCA311;
     margin-left: 340px;
     margin-top: 70px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
     font-weight:800;
 }
 .about img{
     width: 390px;
     height: 350px;
     border-radius: 100%;
+    position: relative;
+    bottom: 70px;
 }
 .about-content{
     display: flex;
-    margin-right: 50px
+    margin-right: 50px;
 }
 .about h3{
     display: inline;
+    font-size: 20px;
+    color: #E5E5E5;
+    font-weight:normal;
+    line-height: 35px;
+}
+.projects h1{
+    font-size: 4rem;
+    color: #FCA311;
+    margin-left: 340px;
+    margin-bottom: 35px;
+    font-weight: 800;
+    position: relative;
+    bottom: 50px;
+}
+.projects-content{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 20px;
+}
+.projects-content .left{
+    margin-left: 50px
+}
+.projects-content .left .title{
+    margin:10px 0 10px 50px;
+    font-size: 30px;
+    color: #FCA311;
+    font-weight: 600;
+}
+.projects-content .left .title.second{
+    margin-top: 30px;
+    font-size: 25px;
+    color: #FCA311;
+    font-weight: 600;
+}
+.projects-content .right .title{
+    margin:10px 0 10px 50px;
+    font-size: 30px;
+    color: #FCA311;
+    font-weight: 600;
+}
+.projects-content .right{
+    margin-right: 123px
+}
+.projects-content .project-img img{
+    width: 440px;
+    height: 290px;
+    border-radius: 30px;
+}
+.blog h1{
+    font-size: 4rem;
+    color: #FCA311;
+    margin: 30px 0 35px 200px;
+    font-weight: 800;
 }
