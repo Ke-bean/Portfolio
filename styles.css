@@ -251,3 +251,37 @@ nav .nav-items{
  color: #bdbbbb;
  font-size: 15px;
 }
+.contact{
+    margin-left: 280px;
+    position: relative;
+    bottom: 130px;
+}
+form{
+    background-color: #1A1F29;
+    width: 35rem;
+    height: 25rem;
+    padding-top: 49px;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+}
+.inputs{
+    background-color:#1A1F29;
+    text-decoration: none;
+    border:none;
+    margin: 10px 0;
+}
+.labels{
+    color:#E5E5E5;
+}
+.contact-me{
+    font-size: 40px;
+    color: #E5E5E5;
+    margin-bottom: 20px;
+}
+.submitBtn{
+    width: 80%;
+    text-align: center;
+}
+
