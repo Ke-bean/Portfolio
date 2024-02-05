@@ -283,5 +283,22 @@ form{
 .submitBtn{
     width: 80%;
     text-align: center;
+    margin-top: 30px;
+    background-color:#c98416;
+    padding: 10px 10px;
+    font-size: 20px;
+    color: #E5E5E5;
+    font-weight: bold;
+    letter-spacing: .5px;
+    margin-left:38px;
+    border:none;
+    border-radius: 26px;
+}
+.line{
+   border: 1px solid #141414;
+   width: 24rem;
+   position: relative;
+   bottom: 8px;
+   right:7px;
 }
 
