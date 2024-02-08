@@ -7,10 +7,13 @@ body{
     background-color: #131F39;
     font-family: sans-serif;
 }
+.menu-icon img{
+    display: none;
+}
 nav{
     display: flex;
     justify-content: space-between;
-    margin: 2rem 4rem 0 4rem;
+    margin: 2rem 0 0 4rem;
 }
 nav .logo{
     color: #E5E5E5;
@@ -19,7 +22,7 @@ nav .logo{
 }
 nav a{
     text-decoration: none;
-    margin-right: 2rem;
+    margin-right: 1rem;
     font-size: 24px;
     color: #131F39;
     background-color: #E5E5E5;
@@ -29,6 +32,7 @@ nav a{
 }
 nav .nav-items{
     margin-top: 10px;
+    margin-left: 300px;
 }
 .container{
     margin: 3.9rem 0 0 4rem;
@@ -301,4 +305,249 @@ form{
    bottom: 8px;
    right:7px;
 }
-
+@media screen and (max-width: 600px){ 
+    body{
+        /* background-color: red; */
+    }  
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 1.5rem 0 1.5rem;
+        }
+        nav .logo {
+            color: #C6BDBD;
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+        .nav-items{
+            display: none;
+        }
+        .menu-icon img{
+            display: block;
+            width: 28px;
+            height: 28px;
+            border:none;
+            color: #C6BDBD;
+            margin-right: 290px;
+            background-color: none;
+        }
+        .container {
+            margin: .5rem 0 0 1.5rem;
+            
+        }
+        .hero .ad-copy {
+            color: #FCA311;
+            font-size: 5px;
+            font-weight:500;
+            position: relative;
+            top: 100px;
+        }
+        .hero .ad-copy h3 {
+            color: #d4d0d0;
+            font-size: 5.7px;
+            font-weight: normal;
+            margin-top: 25px;
+            position: relative;
+            bottom: 52px;
+            left:118px;
+        }
+        .brand-pic img {
+            width: 70px;
+            height: 85px;
+            /* margin-right: 5.2rem;
+            border-radius: 100%; */
+            position: relative;
+            /* bottom: 290px;  */
+            right: 390px;
+        }
+        .ad-copy button {
+            font-size: 9PX;
+            font-weight: bold;
+            color: #E5E5E5;
+            background-color: #c98416;
+            padding:7px 7px;
+            border: none;
+            border-radius: 13px;
+            position: relative;
+            bottom:65px;
+        }
+        .brand-pic .desc {
+            color: #FCA311;
+            position: relative;
+            bottom: 80px;
+            font-size: 6px;
+            right: 149px;
+        }
+        .brand-pic .desc h4 {
+            color: #d4d0d0;
+            margin-top: 10px;
+            margin-right: 10px;
+            line-height: 10px;
+            /* width: 180px; */
+            font-size: 7px;
+            font-weight:500;
+        }
+        .about h1 {
+            font-size: 13px;
+            color: #FCA311;
+            font-weight: 800;
+            position: relative;
+            top:-33px;
+            right: 260px
+        }
+        .about img {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            position: relative;
+            bottom: 65px;
+            right: 170px;
+        }
+        .about-content {
+            display: flex;
+            margin-right: 50px;
+        }
+        .about h3 {
+            display: inline;
+            font-size: 5px;
+            color: #E5E5E5;
+            font-weight: normal;
+            line-height: 7px;
+            /* letter-spacing: .5px; */
+            position: relative;
+            bottom: 50px;
+        }
+        .projects h1 {
+            font-size: 13px;
+            color: #FCA311;
+            font-weight: 800;
+            position: relative;
+            bottom: 50px;
+            right: 260px
+        }
+        .projects-content {
+            /* display: flex;
+            justify-content: space-between;
+            position: relative;
+            bottom: 20px; */
+        }
+        .projects-content .left {
+            margin-left: 40px;
+            position: relative;
+            bottom: 50px;
+        }
+        .projects-content .left .title {
+            font-size: 6px;
+            color: #FCA311;
+            font-weight: 600;
+            position:relative;
+            bottom:13px;
+            left: -55px;
+        }
+        .projects-content .left .title.second {
+            font-size: 6px;
+            color: #FCA311;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        .projects-content .right .title {
+            font-size: 6px;
+            color: #FCA311;
+            font-weight: 600;
+            position: relative;
+            bottom: 15px;
+            left: -65px;
+        }
+        .projects-content .right {
+            position: relative;
+            left:-110px;
+            bottom: 50px;
+        }
+        .projects-content .project-img img {
+            width: 120px;
+            height: 90px;
+            border-radius: 30px;
+            position: relative;
+            bottom: 20px;
+            right:30px;
+        }
+        .blog-content {
+            /* display: flex;
+            justify-content: space-between; */
+        }
+        .blog h1 {
+            font-size: 13px;
+            color: #FCA311;
+            font-weight: 800;
+            position: relative;
+            bottom: 109px;
+            left: -150px
+        }
+        .blog h4 {
+            display: inline;
+            font-size: 8px;
+            color: #E5E5E5;
+            font-weight: normal;
+            line-height:1px;
+            position: relative;
+            bottom: 165px;
+            left: 10px;
+        }
+        .blog-author img {
+            width: 30px;
+            height: 40px;
+            border-radius: 100%;
+            display: inline;
+        }
+        .blog-author h4 {
+            position: relative;
+            bottom:20px;
+            margin-left: -8px;
+            color: #bdbbbb;
+            font-weight: normal;
+        }
+        .blog-author .blog-date {
+            position: relative;
+            bottom: 7px;
+            font-size: 7px;
+            color: #bdbbbb;
+            font-weight: normal;
+        }
+        .blog .left {
+            /* margin-left:37px;
+            margin-top: 10px; */
+            position: relative;
+            bottom: 170px;
+            left: -50px;
+        }
+        .blog .left .left-second {
+            /* position: relative;
+            bottom: 730px; */
+        }
+        .blog .right {
+            /* margin-top: 19.8px;
+            margin-right: 110px; */
+        }
+        .blog .left .title {
+            position: relative;
+            top: -3px;
+            font-size: 5px;
+            right: -4px;
+            color: #E5E5E5;
+            line-height: 7px;
+        }
+        
+        .blog .right .title {
+            position: relative;
+            bottom: 10px;
+            font-size: 5px;
+            right: 335px;
+            color: #E5E5E5;
+            line-height: 16px;
+        }
+        .blog-img img {
+            width: 132px;
+            height: 87px;
+            border-radius: 30px;
+        } 
+}    
