@@ -23,7 +23,7 @@ nav .logo{
 nav a{
     text-decoration: none;
     margin-right: 1rem;
-    font-size: 24px;
+    font-size: 14px;
     color: #131F39;
     background-color: #E5E5E5;
     font-weight:bolder;
@@ -32,7 +32,7 @@ nav a{
 }
 nav .nav-items{
     margin-top: 10px;
-    margin-left: 300px;
+    margin-left: 420px;
 }
 .container{
     margin: 3.9rem 0 0 4rem;
@@ -57,11 +57,11 @@ nav .nav-items{
     display: flex;
 }
 .brand-pic img{
-    width: 170px;
-    height: 320px;
+    width: 200px;
+    height: 240px;
     margin-right: 5rem;
-    transform: rotate(-7deg);
-    border-radius: 2em;
+    transform: rotate(-4deg);
+    border-radius: 100%;
 }
 .brand-pic .desc{
     margin: 90px 10px 0 0 ;
@@ -514,6 +514,7 @@ form{
             position: relative;
             bottom: 7px;
             font-size: 7px;
+            left: -90px;
             color: #bdbbbb;
             font-weight: normal;
         }
@@ -525,8 +526,8 @@ form{
             left: -50px;
         }
         .blog .left .left-second {
-            /* position: relative;
-            bottom: 730px; */
+            position: relative;
+            bottom: 80px;
         }
         .blog .right {
             /* margin-top: 19.8px;
@@ -554,4 +555,85 @@ form{
             height: 87px;
             border-radius: 30px;
         } 
+        .activities .likes img {
+            width: 30px;
+            height: 30px;
+            display: inline;
+            position: relative;
+            bottom: 5px;
+            left: 40px;
+        }
+        
+        .activities .likes p {
+            position: relative;
+            bottom: 30px;
+            left: 65px;
+            color: #bdbbbb;
+            font-size: 10px;
+        }
+        
+        .activities .comments img {
+            width: 20px;
+            height: 20px;
+            display: inline;
+            position: relative;
+            bottom: 107px;
+            left: 134px;
+        }
+        
+        .activities .comments p {
+            position: relative;
+            bottom: 133px;
+            left: 170px;
+            color: #bdbbbb;
+            font-size: 15px;
+        }
+        .contact {
+            /* margin-left: 280px;
+            position: relative;
+            bottom: 130px; */
+        }
+        
+        form {
+            background-color: #1A1F29;
+            width: 35rem;
+            height: 25rem;
+            padding-top: 49px;
+            padding-left: 25px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 40px;
+        }
+        
+        .inputs {
+            background-color: #1A1F29;
+            text-decoration: none;
+            border: none;
+            margin: 10px 0;
+        }
+        
+        .labels {
+            color: #E5E5E5;
+        }
+        
+        .contact-me {
+            font-size: 10px;
+            color: #E5E5E5;
+            margin-bottom: 2px;
+        }
+        
+        .submitBtn {
+            width: 80%;
+            text-align: center;
+            margin-top: 30px;
+            background-color: #c98416;
+            padding: 10px 10px;
+            font-size: 20px;
+            color: #E5E5E5;
+            font-weight: bold;
+            letter-spacing: .5px;
+            margin-left: 38px;
+            border: none;
+            border-radius: 26px;
+        }
 }    
