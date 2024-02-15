@@ -101,7 +101,9 @@ header {
   border-radius: 50%;
   object-fit: cover;
 }
-
+.menu-img {
+  display: none;
+}
 @media (min-width: 768px) and (max-width: 1023px) {
   #hero-right > h2 {
     font-size: 2.5rem;
@@ -204,7 +206,15 @@ header {
     flex-direction: column-reverse;
     overflow: hidden;
   }
-
+ .menu-img {
+   display: block;
+   width: 28px;
+   height: 28px;
+   border: none;
+   color: #C6BDBD;
+   margin-right: 290px;
+   background-color: none;
+ }
   header {
     margin: 2rem 3rem;
   }
