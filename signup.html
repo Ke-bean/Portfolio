@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Signup</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="contact login-form">
-        <form action="">
-            <h2 class="contact-me">Sign Up</h2>
-            <label class="labels" for="fullname">Username</label>
-            <input class="inputs" type="text" name="username" id="username" placeholder="username">
-            <div class="line"></div>
-            <label class="labels" for="fullname">Email</label>
-            <input class="inputs" type="text" name="email" id="email" placeholder="name@gmail.com">
-            <div class="line"></div>
-            <label class="labels" for="fullname">Password</label>
-            <input class="inputs" type="text" name="password" id="password" placeholder="Enter your password">
-            <div class="line"></div>
-            <label class="labels" for="email">Confirm Password</label>
-            <input class="inputs" type="text" name="password" id="password" placeholder="Confirm your password">
-            <div class="line"></div>
-            <input class="submitBtn" type="submit" value="Create Account">
-        </form>
+      <form action="" id="form">
+        <div class="input-control flex flex-col">
+          <h2 class="contact-me">Sign Up</h2>
+          <label class="labels" for="fullname">Username</label>
+          <input
+            class="inputs"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+          />
+          <div class="line"></div>
+          <div class="error"></div>
+        </div>
+
+        <div class="input-control flex flex-col">
+          <label class="labels" for="email">Email</label>
+          <input
+            class="inputs"
+            type="text"
+            name="email"
+            id="email"
+            placeholder="name@gmail.com"
+          />
+          <div class="line"></div>
+          <div class="error"></div>
+        </div>
+
+        <div class="input-control flex flex-col">
+          <label class="labels" for="fullname">Password</label>
+          <input
+            class="inputs"
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+          />
+          <div class="line"></div>
+          <div class="error"></div>
+        </div>
+
+        <div class="input-control flex flex-col">
+          <label class="labels" for="email">Confirm Password</label>
+          <input
+            class="inputs"
+            type="text"
+            name="password"
+            id="password2"
+            placeholder="Confirm your password"
+          />
+          <div class="line"></div>
+          <div class="error"></div>
+        </div>
+
+        <input class="submitBtn" type="submit" value="Create Account" />
+      </form>
     </div>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
