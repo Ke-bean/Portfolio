@@ -1,17 +1,17 @@
 :root{
-    --white: hsla(0, 0%, 100%, 1);
+    --white: #101319;
     --white_a8: hsla(0, 0%, 100%, 0.08);
     --white_a12: hsla(0, 0%, 100, 0.12);
-    --cultured: hsla(220, 20%, 97%, 1);
-    --snow: hsla(345, 57%, 97%, 1);
+    --cultured: #222936;
+    --snow: #222936;
     --manatee: hsla(219, 10%, 62%, 1);
-    --black-coral: hsla(220, 12%, 43%, 1);
+    --black-coral: #c9e5e2;
     --cadet-blue-crayola_a20: hsla(222, 23%, 71%, 0.2);
-    --cinnamon-satin: hsla(344, 53%, 62%, 1);
-    --raisin-black: hsla(216, 14%, 14%, 1);
+    --cinnamon-satin: #496991;
+    --raisin-black: hsla(216, 14%, 14%, 1);x
     --raisin-black_a6: hsla(216, 14%, 14%, 0.06);
-    --gunmetal: hsla(214, 15%, 21%,1);
-    --charcoal: hsla(219, 22%, 26%, 1);
+    --gunmetal: #cdfac7;
+    --charcoal: #9cb399;
     --fs-manrope: "Manrope", sans-serif;
     --fs-1: calc(2.7rem + 1.38vw);
     --fs-2: calc(2.6rem + .66vw);
@@ -214,7 +214,7 @@ header.active{
     position: fixed;
     top: 0;
     left: -300px;
-    background-color: var(--raisin-black);
+    background-color: #c9e5e2;
     color: var(--white);
     max-width: 300px;
     width: 100%;
