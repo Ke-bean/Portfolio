@@ -9,7 +9,7 @@
 }
 :root{
     --container-color: #1a1e21;
-    --second-color: #fd8f44;
+    --second-color: hsla(220, 12%, 43%, 1);
     --text-color: #172317;
     --bg-color: #fff;
 }
@@ -67,7 +67,7 @@ header.shadow .logo{
     color: var(--bg-color);
 }
 .login:hover{
-    background: hsl(24, 98%, 58%);
+    background:hsla(220, 20%, 97%, 1);
     transition: .3s;
 }
 .home{
@@ -169,8 +169,8 @@ header.shadow .logo{
     margin-top: 4rem !important;
 }
 .back-home{
-    color: var(--second-color);
-    font-size: .9rem;
+    color: #8be9f9e6;
+    font-size: 1rem;
 }
 .header-title{
     width: 90%;
