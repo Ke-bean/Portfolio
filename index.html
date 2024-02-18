@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <title>Kebean-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header" data-header>
+      <div class="container">
+        <a href="#" class="logo">
+          <span style="font-size: 25px">Kebean</span>
+        </a>
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#"> <span style="font-size: 25px">Kebean</span></a>
+            <button
+              class="nav-close-btn"
+              aria-label="close-menu"
+              data-nav-toggler
+            >
+              <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+          <ul class="navbar-list">
+            <li>
+              <a href="#" class="navbar-link"> Home </a>
+            </li>
+            <li>
+              <a href="#about" class="navbar-link"> About </a>
+            </li>
+            <li>
+              <a href="#projects" class="navbar-link"> Projects </a>
+            </li>
+            <li>
+              <a href="blog.html" class="navbar-link"> Blog </a>
+            </li>
+            <li>
+              <a href="#contact" class="navbar-link"> Contact </a>
+            </li>
+            <li>
+              <a href="login.html" class="navbar-link"> Login </a>
+            </li>
+          </ul>
+          <div class="wrapper">
+            <a href="mailto:chenqiua@gmail.com0" class="contact-link"
+              >chenqiua@gmail.com</a
+            >
+            <a href="tel:+250738934106" class="contact-link">+250 783934106</a>
+          </div>
+        </nav>
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler="">
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <div class="overlay" data-nav-toggler data-overlay></div>
+      </div>
+    </header>
+    <main>
+      <article>
+        <section class="section hero" aria-label="home">
+          <div class="container">
+            <figure class="hero-banner">
+              <img
+                src="./assets/images/Kebean.jpg"
+                width="560"
+                height="540"
+                class="w-100"
+                alt="kebean"
+                data-reveal="top"
+              />
+            </figure>
+            <div class="hero-content">
+              <h1
+                class="h1 hero-title"
+                data-reveal="top"
+                data-reveal-delay=".5s"
+              >
+                Full Stack Developer
+              </h1>
+              <p
+                class="section-text"
+                data-reveal="top"
+                data-reveal-delay=".75s"
+              >
+                I empower clients to maximize business value, unlocking untapped
+                potential for greater success
+              </p>
+              <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
+                <a href="#" class="btn btn-primary">Download Resume</a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="about" class="section about" aria-label="about">
+          <div class="container">
+            <div class="wrapper">
+              <div data-reveal="left">
+                <h2 class="h2 section-title">About me</h2>
+                <p class="section-text">
+                  I'm a passionate Full Stack Web & App Developer. it's not just
+                  about writing lines of code for me-it's a love afair with
+                  solving real world problems and crafting digital magic. I
+                  thrive on the challenge of turning ideas into dynamic
+                  applications, where every functions tells a story of
+                  innovation. What sets me apart is not just technical prowess
+                  but a genuine commitment to adding meaningfull value. Let's
+                  embark on a journey where my passion for coding elevates your
+                  project.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="projects" class="section project" aria-labelledby="project-label">
+          <div class="container">
+            <div class="title-wrapper" data-reveal="top">
+              <div>
+                <h2 class="h2 section-title" id="project-label">My Projects</h2>
+                <p class="section-text">
+                  Elevate your projects with my passion for full-stack
+                  innovation and seamless user exprience
+                </p>
+              </div>
+              <a href="#" class="btn btn-secondary">See All Projects</a>
+            </div>
+            <ul class="grid-list">
+              <li>
+                <div
+                  class="project-card project-card-1"
+                  style="background-color: #f8f5fb"
+                >
+                  <div class="card-content" data-reveal="left">
+                    <h3 class="h3 card-title">Shopping Application</h3>
+
+                    <a href="#" class="btn-text" style="color: #a07cc5">
+                      <span class="span">See project</span>
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+                  <figure class="card-banner" data-reveal="right">
+                    <img
+                      src="./assets/images/shopping-img.png"
+                      alt="JS Async/Await"
+                      class="w-100"
+                      width="650"
+                      height="370"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="project-card project-card-2"
+                  style="background-color: #f1f5fd"
+                >
+                  <div class="card-content" data-reveal="right">
+                    <h3 class="h3 card-title">Blog Application</h3>
+
+                    <a href="#" class="btn-text" style="color: #a07cc5">
+                      <span class="span">See project</span>
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+                  <figure class="card-banner" data-reveal="left">
+                    <img
+                      src="./assets/images/blog-img.jpg"
+                      alt="JS Async/Await"
+                      class="w-100"
+                      width="600"
+                      height="367"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+              </li>
+              <li>
+                <div
+                  class="project-card project-card-3"
+                  style="background-color: #f5faf7"
+                >
+                  <div class="card-content" data-reveal="left">
+                    <h3 class="h3 card-title">Travel Booking App</h3>
+
+                    <a href="#" class="btn-text" style="color: #a07cc5">
+                      <span class="span">See project</span>
+                      <ion-icon
+                        name="arrow-forward-outline"
+                        aria-hidden="true"
+                      ></ion-icon>
+                    </a>
+                  </div>
+                  <figure class="card-banner" data-reveal="right">
+                    <img
+                      src="./assets/images/travel-app-img.jpg"
+                      alt="JS Async/Await"
+                      class="w-100"
+                      width="620"
+                      height="370"
+                      loading="lazy"
+                    />
+                  </figure>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section id="contact" class="section-contact" aria-label="contact">
+          <div class="container">
+            <div class="contact-card">
+              <div class="contact-content" data-reveal="left">
+                <div class="card-icon">
+                  <img
+                    src="./assets/images/icon-5.svg"
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                    alt="envelop icon"
+                  />
+                </div>
+                <h2 class="h2 section-title">Contact Me</h2>
+                <p>
+                  I Craft Digital Excellence using MERN stack as my favorite
+                  tool among others... .I empower clients to maximize business
+                  value, unlocking untapped potential for greater success. So,
+                  Elevate your projects with my passion for full-stack
+                  innovation and seamless user exprience
+                </p>
+              </div>
+              <form action="" class="contact-form" data-reveal="right">
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Kebean"
+                    class="input-field"
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="chenqiua@gmail.com"
+                    class="input-field"
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  id=""
+                  placeholder="Message"
+                  class="input-field"
+                ></textarea>
+                <button type="submit" class="btn btn-secondary">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <script src="./assets/index.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
