@@ -144,10 +144,33 @@ form.addEventListener("submit", e => {
             parentElement.classList.add("success");
             parentElement.classList.remove("error");
         }
-        localStorage.setItem("username", usernameVal)
-        localStorage.setItem("email", emailVal)
-        localStorage.setItem("Password", passwordVal)
-        console.log(localStorage.getItem("email"))
+        // I will check on how to handle admin signup without hardcoding it.
+          // const admin = {
+          //   name: usernameVal,
+          //   email: emailVal,
+          //   password: passwordVal
+          // }
+          // const adminJSON = JSON.stringify(admin);
+          // localStorage.setItem("admin", adminJSON)
+
+        // normal users registration
+        let users = [
+          {
+            username: "",
+            email: "",
+            password: ""
+          }
+        ]
+        for (let i = 0; i < users.length; i++){
+          users.push({
+            username: usernameVal,
+            email: emailVal,
+            password: passwordVal
+          })
+
+        }
+        console.log(users.length)
+        localStorage.setItem("Users", JSON.stringify(users));
     }
 )
 // validation for login form

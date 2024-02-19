@@ -18,7 +18,7 @@ body {
 
 .container {
     height: 550px;
-    width: 450px;
+    width: 460px;
     border: 2px solid rgba(255, 255, 255, .4);
     border-radius: 10px;
     background-color: rgba(0, 0, 0, .2);
@@ -31,7 +31,7 @@ body {
 }
 
 .form-box {
-    display: flex;
+    display: flex;  
 }
 
 .form-box .login {
@@ -42,18 +42,25 @@ body {
 }
 
 .form-box .login.active {
-    transform: translateX(-450px) rotate(45deg);
+    transform: translateX(-450px) rotate(10deg);
     transition-delay: .2s;
 }
 
 .form-box .register {
-    transform: translateX(450px) rotate(-45deg);
+    transform: translateX(450px) rotate(-15deg);
     transition-delay: .2s;
 }
 
 .form-box .register.active {
     transform: translateX(0px) rotate(0deg);
     transition-delay: .4s;
+}
+
+.back-home{
+    margin-left: 280px;
+    position: relative;
+    bottom: 55px;
+    color: #8be9f9e6;
 }
 
 .container .form-box h2 {
@@ -124,8 +131,8 @@ body {
 /* responsiveness */
 @media (max-width: 768px) {
     .container {
-        height: 500px;
-        width: 380px;
+        height: 650px;
+        width: 390px;
     }
 
     .container .form-box h2 {
@@ -150,12 +157,18 @@ body {
     .account-creation {
         font-size: 13px;
     }
+    .back-home {
+        margin-left: 235px;
+        position: relative;
+        bottom: 100px;
+    }
+
 }
 
 @media (max-width: 480px) {
     .container {
-        height: 450px;
-        width: 310px;
+        height: 550px;
+        width: 320px;
     }
 
     .container .form-box h2 {
@@ -180,6 +193,11 @@ body {
     .account-creation {
         font-size: 11px;
     }
+    .back-home {
+        margin-left: 190px;
+        position: relative;
+        bottom: 65px;
+    }
 }
 .error {
     color: #e74c3c;
@@ -193,8 +211,8 @@ body {
 
 @media (max-width: 365px) {
     .container {
-        height: 420px;
-        width: 280px;
+        height: 520px;
+        width: 290px;
     }
 
     .container .form-box h2 {
@@ -218,5 +236,11 @@ body {
 
     .account-creation {
         font-size: 10px;
+    }
+    .back-home {
+        margin-left: 160px;
+        position: relative;
+        bottom: 65px;
+        font-size: 12px
     }
 }
