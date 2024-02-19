@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsla(216, 14%, 14%, 1);
+}
+
+.container {
+    height: 550px;
+    width: 450px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2), 0 0 15px rgba(0, 0, 0, .2) 0 0 30px rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.form-box {
+    display: flex;
+}
+
+.form-box .login {
+    position: absolute;
+    transform: translateX(0px) rotate(0deg);
+    transition: .5s ease;
+    transition-delay: .4s;
+}
+
+.form-box .login.active {
+    transform: translateX(-450px) rotate(45deg);
+    transition-delay: .2s;
+}
+
+.form-box .register {
+    transform: translateX(450px) rotate(-45deg);
+    transition-delay: .2s;
+}
+
+.form-box .register.active {
+    transform: translateX(0px) rotate(0deg);
+    transition-delay: .4s;
+}
+
+.container .form-box h2 {
+    text-align: center;
+    font-size: 37px;
+    font-weight: 500;
+}
+
+.form-box .input-box {
+    margin: 35px 0;
+    width: 330px;
+    border-bottom: 2px solid rgba(255, 255, 255, .4);
+    position: relative
+}
+
+.form-box .input-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    padding: 0 35px 0 5px;
+}
+
+.form-box .input-box label {
+    font-weight: 400;
+    letter-spacing: .8px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s ease;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.btn {
+    height: 45px;
+    width: 100%;
+    border-radius: 50px;
+    color: #fff;
+    background-color: hsla(214, 15%, 21%, 1);
+    border: 2px solid hsla(219, 22%, 26%, 1);
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.account-creation {
+    text-align: center;
+    margin: 25px 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.account-creation span a {
+    text-decoration: none;
+}
+
+.account-creation span a:hover {
+    text-decoration: underline;
+}
+
+/* responsiveness */
+@media (max-width: 768px) {
+    .container {
+        height: 500px;
+        width: 380px;
+    }
+
+    .container .form-box h2 {
+        font-size: 32px;
+    }
+
+    .form-box .input-box {
+        margin: 35px 0;
+        width: 300px;
+    }
+
+    .form-box .input-box label {
+        font-size: 14px;
+    }
+
+    .btn {
+        height: 40px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .account-creation {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 450px;
+        width: 310px;
+    }
+
+    .container .form-box h2 {
+        font-size: 26px;
+    }
+
+    .form-box .input-box {
+        margin: 30px 0;
+        width: 260px;
+    }
+
+    .form-box .input-box label {
+        font-size: 12px;
+    }
+
+    .btn {
+        height: 35px;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .account-creation {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 365px) {
+    .container {
+        height: 420px;
+        width: 280px;
+    }
+
+    .container .form-box h2 {
+        font-size: 24px;
+    }
+
+    .form-box .input-box {
+        margin: 25px 0;
+        width: 220px;
+    }
+
+    .form-box .input-box label {
+        font-size: 10 px;
+    }
+
+    .btn {
+        height: 30px;
+        width: 100%;
+        font-size: 11px;
+    }
+
+    .account-creation {
+        font-size: 10px;
+    }
+}

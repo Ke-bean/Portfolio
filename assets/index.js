@@ -49,3 +49,16 @@ const blogHheader = document.querySelector("header");
 window.addEventListener("scroll", () =>{
   blogHheader.classList.toggle("shadow", window.scrollY > 0)
 })
+// Js for auth
+const login = document.querySelector(".login")
+const register = document.querySelector(".register");
+const loginLink = document.querySelector(".loginLink")
+const registerLink = document.querySelector(".registerLink");
+registerLink.addEventListener("click", () =>{
+  register.classList.add("active");
+  login.classList.add("active")
+})
+loginLink.addEventListener("click", () =>{
+  register.classList.remove("active");
+  login.classList.remove("active")
+})
