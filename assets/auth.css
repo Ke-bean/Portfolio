@@ -181,6 +181,15 @@ body {
         font-size: 11px;
     }
 }
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+.success {
+    color: #2ecc71;
+    font-size: 14px;
+}
 
 @media (max-width: 365px) {
     .container {
