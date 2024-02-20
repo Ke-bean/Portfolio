@@ -197,7 +197,9 @@ header.shadow .logo{
     margin: 1rem 0;
     text-align: justify;
 }
-
+.red{
+    color: red;
+}
 /* media queries */
 @media (max-width: 1060px){
     .container{

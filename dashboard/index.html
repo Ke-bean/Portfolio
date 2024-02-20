@@ -15,7 +15,7 @@
     <section id="sidebar">
 		<a href="#" class="brand">
         <i class='bx bx-home-circle'></i>
-		<span class="text">KBN</span>
+		<span class="text">Kebean</span>
 		</a>
         <ul class="side-menu top">
             <li>
@@ -54,12 +54,12 @@
 				<span class="text"></span>
                 </a>
             </li>
-            <li>
-                <a href="#" class="subscribers">
-                    <i class='bx bxs-cog' ></i>
-				<span class="text">Change password</span>
-                </a>
-            </li>
+                <li>
+                    <a href="#" class="subscribers">
+                        <i class='bx bxs-cog' ></i>
+                    <span class="text">Change password</span>
+                    </a>
+                </li>
             <li>
                 <a href="#" class="logout">
                     <i class='bx bxs-log-out-circle' ></i>
@@ -84,7 +84,7 @@
             
         </a>
         <a href="#" class="profile">
-          <img src="../img/engr.jpg">
+          <img src="../assets/images/Kebean.jpg">
         </a>
     </nav>
     </section>
@@ -169,8 +169,8 @@
                                         <span>11/02/2022 Blog Title </span>
                                        <div class="icons">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-trash'></i>&nbsp;&nbsp;&nbsp;<i class='bx bx-edit-alt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
                                 </div> 
-                                    </div>
-                                    </div>
+                                </div>
+                                </div>
                                
                                 
       <div class="Add-post">
@@ -277,6 +277,16 @@
         messages.style.display="none";
         subscribers.style.display="flex";
         })
+        const auth=localStorage.getItem("auth");
+        if(auth!="loggedin"){
+            window.location.href = "../assets/auth.html";
+        }
+        const logoutBtn=document.querySelector(".logout");
+        logoutBtn.addEventListener("click",()=>{
+            localStorage.setItem("auth", "");
+            window.location.href = "../";
+        })
+
         </script>
 </body>
 </html>

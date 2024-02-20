@@ -14,7 +14,10 @@
     <header>
       <div class="nav container">
         <a href="blog.html" class="logo">Kebean</a>
-        <a href="#" class="login">Login</a>
+        <a href="assets/auth.html" class="login" id="login1">Login</a>
+        <a href="" class="login red" id="logout1" style="display: none"
+          >Logout</a
+        >
       </div>
     </header>
     <section class="post-header">
@@ -120,6 +123,23 @@
         sapiente?
       </p>
     </section>
+    <script>
+      const auth = localStorage.getItem("auth");
+      const user = localStorage.getItem("userEmail");
+      const loginL = document.getElementById("login1");
+      const logoutL = document.getElementById("logout1");
+      logoutL.addEventListener("click", () => {
+        localStorage.setItem("userEmail", "");
+        window.location.reload();
+      });
+      if (auth) {
+        window.location.href = "/dashboard";
+      }
+      if (user) {
+        loginL.style.display = "none";
+        logoutL.style.display = "block";
+      }
+    </script>
     <script src="./assets/index.js"></script>
   </body>
 </html>

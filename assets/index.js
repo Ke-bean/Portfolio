@@ -68,9 +68,8 @@ const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 const password2 = document.querySelector("#password2");
 const email = document.querySelector("#email")
-form.addEventListener("submit", e => {
-        e.preventDefault();
-        const usernameVal = username.value.trim();
+function registerValidation(){
+  const usernameVal = username.value.trim();
         const emailVal = email.value.trim();
         const passwordVal = password.value.trim();
         const password2Val = password2.value.trim();
@@ -80,12 +79,7 @@ form.addEventListener("submit", e => {
             errorMsg.innerHTML = "username can't be empty";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
-        }else{
-            const parentElement = username.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
+            return 0;
         }
         if(emailVal == ""){
             const parentElement = email.parentElement;
@@ -93,18 +87,14 @@ form.addEventListener("submit", e => {
             errorMsg.innerHTML = "Email is required";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
+            return 0;
         } else if(!isValidEmail(emailVal)){
             const parentElement = email.parentElement;
             const errorMsg = parentElement.querySelector(".error");
             errorMsg.innerHTML = "Invalid Email";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
-        }else{
-            const parentElement = email.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
+            return 0;
         }
         if(passwordVal == ""){
             const parentElement = password.parentElement;
@@ -112,18 +102,14 @@ form.addEventListener("submit", e => {
             errorMsg.innerHTML = "password is required";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
+            return 0;
         }else if(passwordVal.length < 8){
             const parentElement = password.parentElement;
             const errorMsg = parentElement.querySelector(".error");
             errorMsg.innerHTML = "password must be atleast 8 characters";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
-        }else{
-            const parentElement = password.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
+            return 0;
         }
         if(password2Val == ""){
             const parentElement = password2.parentElement;
@@ -131,58 +117,57 @@ form.addEventListener("submit", e => {
             errorMsg.innerHTML = "Confirm your password";
             parentElement.classList.add("error");
             parentElement.classList.remove("success"); 
+            return 0;
         }else if(password2Val !== passwordVal){
             const parentElement = password2.parentElement;
             const errorMsg = parentElement.querySelector(".error");
             errorMsg.innerHTML = "Password doesn't match";
             parentElement.classList.add("error");
             parentElement.classList.remove("success"); 
-        }else{
-            const parentElement = password2.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
+            return 0;
         }
-        // I will check on how to handle admin signup without hardcoding it.
-          // const admin = {
-          //   name: usernameVal,
-          //   email: emailVal,
-          //   password: passwordVal
-          // }
-          // const adminJSON = JSON.stringify(admin);
-          // localStorage.setItem("admin", adminJSON)
+        return 1;
+}
+document.addEventListener("DOMContentLoaded", function () {
+  // Read existing users from local storage upon page load
+  let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // normal users registration
-        let users = [
-          {
-            username: "",
-            email: "",
-            password: ""
-          }
-        ]
-        for (let i = 0; i < users.length; i++){
-          users.push({
-            username: usernameVal,
-            email: emailVal,
-            password: passwordVal
-          })
+  // Register form validation
+  const form = document.querySelector(".register");
+  const username = document.querySelector("#username");
+  const email = document.querySelector("#email");
+  const password = document.querySelector("#password");
+  const password2 = document.querySelector("#password2");
+  const registerBtn = document.querySelector("#signupBtn"); 
 
-        }
-        console.log(users.length)
-        localStorage.setItem("Users", JSON.stringify(users));
-    }
-)
-// validation for login form
+  registerBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("users: ",users);
+      const validation = registerValidation();
+      console.log("validity: ", validation);
+      if (validation === 1) {
+          // Add new user to the array
+          const newUser = {
+              fullNames: username.value.trim(),
+              email: email.value.trim(),
+              password: password.value.trim()
+          };
+          users.push(newUser);
+          console.log("users: ",users);
+
+          // Update local storage with the new array of users
+          localStorage.setItem("users", JSON.stringify(users));
+          window.location.reload();
+      }
+  });
+})
 const loginForm = document.querySelector(".login");
 const password12 = document.querySelector("#password12");
 const password22 = document.querySelector("#password22");
 const email2 = document.querySelector("#email2")
-loginForm.addEventListener("submit", e => {
-  e.preventDefault();
+function loginValidation(){
   const emailVal = email2.value.trim();
   const passwordVal = password12.value.trim();
-  const password2Val = password22.value.trim();
     if(emailVal == ""){
        const parentElement = email2.parentElement;
        const errorMsg = parentElement.querySelector(".error");
@@ -195,12 +180,6 @@ loginForm.addEventListener("submit", e => {
             errorMsg.innerHTML = "Invalid Email";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
-        }else{
-            const parentElement = email2.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
         }
         if(passwordVal == ""){
             const parentElement = password12.parentElement;
@@ -208,40 +187,44 @@ loginForm.addEventListener("submit", e => {
             errorMsg.innerHTML = "password is required";
             parentElement.classList.add("error");
             parentElement.classList.remove("success");
-        }else if(passwordVal.length < 8){
-            const parentElement = password12.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "password must be atleast 8 characters";
-            parentElement.classList.add("error");
-            parentElement.classList.remove("success");
-        }else{
-            const parentElement = password12.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
+            return 0;
         }
-        if(password2Val == ""){
-            const parentElement = password22.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "Confirm your password";
-            parentElement.classList.add("error");
-            parentElement.classList.remove("success"); 
-        }else if(password2Val !== passwordVal){
-            const parentElement = password22.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "Password doesn't match";
-            parentElement.classList.add("error");
-            parentElement.classList.remove("success"); 
-        }else{
-            const parentElement = password22.parentElement;
-            const errorMsg = parentElement.querySelector(".error");
-            errorMsg.innerHTML = "";
-            parentElement.classList.add("success");
-            parentElement.classList.remove("error");
-        }
-    }
-)
+        return 1;
+}
+document.addEventListener("DOMContentLoaded", function () {
+  // Read existing users from local storage upon page load
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Login button event listener
+  const loginBtn = document.getElementById("loginBtn");
+  loginBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const validation= loginValidation();
+      if(validation==1){
+        // Get values from the login form
+      const emailVal = document.getElementById("email2").value.trim();
+      const passwordVal = document.getElementById("password12").value.trim();
+
+      // Loop through the users array to find a match
+      const user = users.find (user => user.email === emailVal && user.password === passwordVal);
+
+      if (user) {
+          // Successful login, set authentication flag and redirect to dashboard
+          if(user.email=="chenqiua@gmail.com"){
+          localStorage.setItem("auth", "loggedin");
+          window.location.href = "../dashboard";
+          }else{
+            localStorage.setItem("userEmail",user.email);
+            window.location.href = "../blog.html";
+          }
+          
+      } else {
+          // Invalid login, display error message
+          document.querySelector(".error").innerHTML="Invalid email or password";
+      } 
+      }
+  });
+});
 // validation for contact me form
 
 const isValidEmail = email => {
