@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="style.css">
+
+	<title>Dashboard</title>
+</head>
+<body>
+    <section id="sidebar">
+		<a href="#" class="brand">
+        <i class='bx bx-home-circle'></i>
+		<span class="text">KBN</span>
+		</a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#" class="posts">
+                    <i class='bx bxs-doughnut-chart' ></i>
+				<span class="post">Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="messages">
+                    <i class='bx bxs-message-dots' ></i>
+				<span class="msg">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="subscribers">
+                    <i class='bx bxs-group' ></i>
+				<span class="subs">Subscribers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="dashboard">
+                <i class='bx bx-pulse'></i>
+				<span class="acts">Activities</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="subscribers">
+                    <i class='bx bx-export'></i>
+				<span class="addp">Add a Post</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="subscribers">
+                
+				<span class="text"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="subscribers">
+                    <i class='bx bxs-cog' ></i>
+				<span class="text">Change password</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle' ></i>
+				<span class="text">Log out</span>
+                </a>
+            </li>
+        </ul>
+</section>
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form action="#">
+        <div class="inpt">
+               <input type="search" class="inptt" placeholder="Search...">
+                <button type="submit" class="sbtn"><i class='bx bx-search' ></i></button>
+            </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+         Notifications   <i class='bx bxs-bell' ><span class="num"><sup>3</sup></span></i>
+            
+        </a>
+        <a href="#" class="profile">
+          <img src="../img/engr.jpg">
+        </a>
+    </nav>
+    </section>
+    <main>
+        <div class="table-data">
+            <div class="messages">
+                <div class="head">
+                    <h3 align="center">Recent Messages</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Email </th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tb1"></tbody>
+                        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+                        
+                        <script src="../firebase.js"></script>
+                            <script src="../app.js"></script>
+                </table>
+            </div>
+    
+
+                    </div>
+                    <div class="table2-data">
+                        <div class="subscribers">
+                            <div class="head">
+                                <h3 align="center">Subscribers</h3>
+                            </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Date </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tb2"></tbody>
+                            <script src="../subs.js"></script>
+                            </table>
+                        </div>
+
+                        </div>
+                        
+                    <div class="blog-container1">
+                        <div class="blog-box1">
+                        <div class="blog-img">
+                         <img src="img/blog2.jpg" width="350px" height="180px" alt="blog">
+                        </div>
+                        <div class="blog-text">
+                            <span>11/02/2022 Blog Title</span>
+                            <div class="icons">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-trash'></i>&nbsp;&nbsp;&nbsp;<i class='bx bx-edit-alt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+                    
+                    </div> 
+                        </div>
+                        <div class="blog-box2">
+                            <div class="blog-img">
+                             <img src="img/bugatti.jpg" width="350px" height="180" alt="blog">
+                            </div>
+                            <div class="blog-text">
+                                <span>11/02/2022 Blog Title</span>
+                                <div class="icons">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-trash'></i>&nbsp;&nbsp;&nbsp;<i class='bx bx-edit-alt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+                        </div> 
+                            </div>
+                            <div class="blog-box3">
+                                <div class="blog-img">
+                                 <img src="img/tour.webp" width="350px" height="180px" alt="blog">
+                                </div>
+                                <div class="blog-text">
+                                    <span>11/02/2022 Blog Title</span>
+                                    <div class="icons">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-trash'></i>&nbsp;&nbsp;&nbsp;<i class='bx bx-edit-alt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+                            </div> 
+                                </div>
+                                <div class="blog-box4">
+                                    <div class="blog-img">
+                                     <img src="img/tour.webp" width="350px" height="180px" alt="blog">
+                                    </div>
+                                    <div class="blog-text">
+                                        <span>11/02/2022 Blog Title </span>
+                                       <div class="icons">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='bx bx-trash'></i>&nbsp;&nbsp;&nbsp;<i class='bx bx-edit-alt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></div>
+                                </div> 
+                                    </div>
+                                    </div>
+                               
+                                
+      <div class="Add-post">
+          <a href="">Upload a blog</a>
+          <div class="post">
+          <input type="text" name="ArticleHeader" placeholder="Enter Article header......"><br>
+          <textarea name="ArticleDescription" placeholder="Enter Article descriptions.........."></textarea><br>
+          <label> <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required style="display:none"><label>Add an image</label><strong><div class="iconimg"><i class='bx bxs-image-add'></i></div></strong></label>
+           <input type="submit" class="addpost" name="AddPost" value="Add Post">
+           
+           
+        </div>
+      </div>
+
+      <div class="table3-data">
+        <div class="subscribers">
+            <div class="head">
+                <h3 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Recent Activities</h3><br>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Date </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Uploaded a blog
+                        </td>
+                        <td>01-10-2021</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Edited a blog
+                        </td>
+                        <td>01-10-2021</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Uploaded a blog
+                        </td>
+                        <td>01-10-2021</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Deleted a blog
+                        </td>
+                        <td>01-10-2021</td>
+                    </tr>
+            </table>
+        </div>
+
+        </div>
+
+    </div>                    
+    </main>
+    <script>
+        const msg = document.getElementsByClassName('msg')[0]
+        const messages =document.getElementsByClassName('table-data')[0]
+        const post = document.getElementsByClassName('post')[0]
+        const posts = document.getElementsByClassName('blog-container1')[0]
+        const addp = document.getElementsByClassName('addp')[0]
+        const addpost = document.getElementsByClassName('Add-post')[0]
+        const subs = document.getElementsByClassName('subs')[0]
+        const subscribers = document.getElementsByClassName('table2-data')[0]
+        const acts = document.getElementsByClassName('acts')[0]
+        const Activities = document.getElementsByClassName('table3-data')[0]
+       msg.addEventListener('click', () =>{
+        posts.style.display="none";
+        subscribers.style.display="none";
+        addpost.style.display="none";
+        Activities.style.display="none";
+        messages.style.display="flex";
+        })
+
+        post.addEventListener('click', () =>{
+        posts.style.display="flex";
+        addpost.style.display="none";
+        Activities.style.display="none";
+        messages.style.display="none";
+        subscribers.style.display="none";
+        })
+
+        addp.addEventListener('click', () =>{
+        posts.style.display="none";
+        addpost.style.display="block";
+        Activities.style.display="none";
+        messages.style.display="none";
+        subscribers.style.display="none";
+        })
+
+        acts.addEventListener('click', () =>{
+        posts.style.display="none";
+        addpost.style.display="none";
+        Activities.style.display="flex";
+        messages.style.display="none";
+        subscribers.style.display="none";
+        })
+
+        subs.addEventListener('click', () =>{
+        posts.style.display="none";
+        addpost.style.display="none";
+        Activities.style.display="none";
+        messages.style.display="none";
+        subscribers.style.display="flex";
+        })
+        </script>
+</body>
+</html>
