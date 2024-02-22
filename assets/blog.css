@@ -147,7 +147,7 @@ header.shadow .logo{
     object-position: center;
     border: 2px solid var(--second-color)
 }
-.profile-name{
+.profile-name{ 
     font-size: .82rem;
     font-weight: 500;
 }

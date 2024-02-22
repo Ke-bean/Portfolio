@@ -62,7 +62,6 @@ loginLink.addEventListener("click", () =>{
   register.classList.remove("active");
   login.classList.remove("active")
 })
-// validation for register(signup link);
 const form = document.querySelector(".register");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
@@ -129,10 +128,8 @@ function registerValidation(){
         return 1;
 }
 document.addEventListener("DOMContentLoaded", function () {
-  // Read existing users from local storage upon page load
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // Register form validation
   const form = document.querySelector(".register");
   const username = document.querySelector("#username");
   const email = document.querySelector("#email");
@@ -146,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const validation = registerValidation();
       console.log("validity: ", validation);
       if (validation === 1) {
-          // Add new user to the array
           const newUser = {
               fullNames: username.value.trim(),
               email: email.value.trim(),
@@ -155,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
           users.push(newUser);
           console.log("users: ",users);
 
-          // Update local storage with the new array of users
           localStorage.setItem("users", JSON.stringify(users));
           window.location.reload();
       }
@@ -192,24 +187,19 @@ function loginValidation(){
         return 1;
 }
 document.addEventListener("DOMContentLoaded", function () {
-  // Read existing users from local storage upon page load
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  // Login button event listener
   const loginBtn = document.getElementById("loginBtn");
   loginBtn.addEventListener("click", function (e) {
       e.preventDefault();
       const validation= loginValidation();
       if(validation==1){
-        // Get values from the login form
       const emailVal = document.getElementById("email2").value.trim();
       const passwordVal = document.getElementById("password12").value.trim();
 
-      // Loop through the users array to find a match
       const user = users.find (user => user.email === emailVal && user.password === passwordVal);
 
       if (user) {
-          // Successful login, set authentication flag and redirect to dashboard
           if(user.email=="chenqiua@gmail.com"){
           localStorage.setItem("auth", "loggedin");
           window.location.href = "../dashboard";
@@ -219,13 +209,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           
       } else {
-          // Invalid login, display error message
           document.querySelector(".error").innerHTML="Invalid email or password";
       } 
       }
   });
 });
-// validation for contact me form
 
 const isValidEmail = email => {
   const pattern = /\S+@\S+\.\S+/g;

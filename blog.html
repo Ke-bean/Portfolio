@@ -107,6 +107,49 @@
         loginL.style.display = "none";
         logoutL.style.display = "block";
       }
+      window.addEventListener("load", () => {
+        const blogsData = localStorage.getItem("blogs");
+        const myBlogs = JSON.parse(blogsData);
+        myBlogs.forEach((item) => {
+          const renderComponent = document.querySelector(".post-box");
+          const divImage = document.createElement("img");
+          divImage.classList.add("post-img");
+          divImage.src = item.image;
+          const aTag = document.createElement("a");
+          aTag.classList.add("post-title");
+          // aTag.href="./posts.html"
+          // const btn = document.querySelector(".post-title");
+          aTag.addEventListener("click", () => {
+            localStorage.setItem('clickedBlog', JSON.stringify(item.title))
+            console.log(item.title)
+          })
+          aTag.textContent = item.title;
+          const content = document.createElement("p");
+          content.classList.add("post-description");
+          content.textContent = item.content;
+          renderComponent.appendChild(divImage);
+          renderComponent.appendChild(aTag);
+          renderComponent.appendChild(content);
+          //     <img
+          //     src="https://imageio.forbes.com/specials-images/imageserve/61d52d4e3a76ed81ac034ea8/The-10-Tech-Trends-That-Will-Transform-Our-World/960x0.jpg?height=399&width=711&fit=bounds"
+          //     alt=""
+          //     class="post-img"
+          //   />
+          //   <a href="posts.html" class="post-title"
+          //     >Form validation: Learn Javascript form validation</a
+          //   >
+          //   <span class="post-date">April 5,2023</span>
+          //   <p class="post-description">
+          //     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
+          //     aliquam?
+          //   </p>
+          //   <div class="profile">
+          //     <img src="./assets/images/Kebean.jpg" alt="" class="profile-img" />
+          //     <div class="profile-name">Kebean Elie</div>
+          //   </div>
+          // </div>
+        });
+      });
     </script>
     <script src="./assets/index.js"></script>
   </body>

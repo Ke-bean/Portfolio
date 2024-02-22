@@ -23,7 +23,7 @@
     <section class="post-header">
       <div class="header-content post-container">
         <a href="blog.html" class="back-home">Back To Blogs</a>
-        <h1 class="header-title">
+        <!-- <h1 class="header-title">
           Javascript Async/Await:Learn ES6 Javascript Async/Await syntax in less
           than 5min.
         </h1>
@@ -31,10 +31,10 @@
           src="./assets/images/async-await-img.png"
           alt=""
           class="header-img"
-        />
+        /> -->
       </div>
     </section>
-    <section class="post-content post-container">
+    <!-- <section class="post-content post-container">
       <h2 class="sub-heading">This is what I know</h2>
       <p class="post-text">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
@@ -122,12 +122,35 @@
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
         sapiente?
       </p>
-    </section>
+    </section> -->
     <script>
       const auth = localStorage.getItem("auth");
       const user = localStorage.getItem("userEmail");
       const loginL = document.getElementById("login1");
       const logoutL = document.getElementById("logout1");
+      const parentContainer = document.querySelector(".post-container")
+
+      window.addEventListener("load", () => {
+       const blogsData = JSON.parse(localStorage.getItem("blogs"))
+       const clickedBlog = JSON.parse(localStorage.getItem("clickedBlog"))
+       const specificBlog = blogsData.find(blog => blog.title === clickedBlog)
+       const divH1 = document.createElement("h1");
+       divH1.textContent =  specificBlog.title;
+       divH1.classList.add("head-title")
+       parentContainer.appendChild(divH1);
+       const divP = document.createElement("p");
+       divP.textContent =  specificBlog.content;
+      //  divP.classList.add("head-title")
+       parentContainer.appendChild(divP);
+       const divImg = document.createElement("img");
+       divImg.src =  specificBlog.image;
+       divImg.classList.add("head-img")
+       parentContainer.appendChild(divImg);
+       
+       
+       console.log(specificBlog)
+      })
+
       logoutL.addEventListener("click", () => {
         localStorage.setItem("userEmail", "");
         window.location.reload();
