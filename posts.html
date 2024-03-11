@@ -23,145 +23,193 @@
     <section class="post-header">
       <div class="header-content post-container">
         <a href="blog.html" class="back-home">Back To Blogs</a>
-        <!-- <h1 class="header-title">
-          Javascript Async/Await:Learn ES6 Javascript Async/Await syntax in less
-          than 5min.
-        </h1>
-        <img
-          src="./assets/images/async-await-img.png"
-          alt=""
-          class="header-img"
-        /> -->
+        <h1 class="header-title"></h1>
+        <img class="header-img" src="" alt="" />
       </div>
     </section>
-    <!-- <section class="post-content post-container">
-      <h2 class="sub-heading">This is what I know</h2>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <h2 class="sub-heading">This is what I know</h2>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <h2 class="sub-heading">This is what I know</h2>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-      <p class="post-text">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum,
-        sapiente?
-      </p>
-    </section> -->
+    <section class="comment-section post-container">
+      <h2 class="section-title">Comments</h2>
+      <div class="comments">
+        <!-- Comments will be added dynamically here -->
+      </div>
+      <form class="comment-form">
+        <input
+          type="text"
+          id="commenter-name"
+          placeholder="Your name"
+          class="input-field"
+          required
+        />
+        <textarea
+          id="comment-text"
+          placeholder="Your comment"
+          class="input-field"
+          required
+        ></textarea>
+        <button type="button" class="comment-submit">Post Comment</button>
+      </form>
+    </section>
+    <section class="likes-section post-container">
+      <button
+        class="like-button"
+        style="
+          position: relative;
+          bottom: 2rem;
+          font-size: 16px;
+          padding: 3px 8px;
+          border: none;
+          color: #000;
+          background-color: orage;
+        "
+      >
+        Like
+      </button>
+      <span
+        class="likes-count"
+        style="
+          position: relative;
+          bottom: 2rem;
+          font-size: 16px;
+          padding: 3px 8px;
+          border: none;
+          color: #000;
+          background-color: orage;
+        "
+        >0 Likes</span
+      >
+    </section>
+
     <script>
+      // Function to handle submitting a new comment
+      document
+        .querySelector(".comment-submit")
+        .addEventListener("click", () => {
+          const commentator = document.getElementById("commenter-name").value;
+          const commentContent = document.getElementById("comment-text").value;
+          const postId = localStorage.getItem("clickedBlog");
+
+          // Create a new comment object
+          const newComment = {
+            name: commentator,
+            content: commentContent,
+          };
+
+          // Get existing comments for this post from local storage or initialize an empty array-Kebean
+          let comments =
+            JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+
+          // Add the new comment to the array
+          comments.push(newComment);
+
+          // Save the updated comments array back to local storage
+          localStorage.setItem(`comments_${postId}`, JSON.stringify(comments));
+
+          // Render comments
+          renderComments();
+
+          // Clear input fields
+          document.getElementById("commenter-name").value = "";
+          document.getElementById("comment-text").value = "";
+        });
+
+      // Function to render comments
+      function renderComments() {
+        const commentsContainer = document.querySelector(".comments");
+        commentsContainer.innerHTML = "";
+        const postId = localStorage.getItem("clickedBlog");
+
+        // Retrieve comments for this post from local storage
+        let comments =
+          JSON.parse(localStorage.getItem(`comments_${postId}`)) || [];
+
+        // Iterate through comments and create HTML elements to display them
+        comments.forEach((comment) => {
+          const commentElement = document.createElement("div");
+          commentElement.classList.add("comment");
+          commentElement.innerHTML = `
+          <div class="comment-content">
+            <div class="commenter-name">${comment.name}</div>
+            <div class="comment-text">${comment.content}</div>
+          </div>
+        `;
+          commentsContainer.appendChild(commentElement);
+        });
+      }
+
+      // Function to handle liking a post
+      document.querySelector(".like-button").addEventListener("click", () => {
+        let likesCount = parseInt(
+          document.querySelector(".likes-count").innerText
+        );
+        const postId = localStorage.getItem("clickedBlog");
+
+        // Check if the post has already been liked
+        const liked = localStorage.getItem(`liked_${postId}`);
+
+        if (!liked) {
+          likesCount++;
+          localStorage.setItem(`liked_${postId}`, "true");
+          localStorage.setItem(`likesCount_${postId}`, likesCount);
+          document.querySelector(".likes-count").innerText =
+            likesCount + " Likes";
+        } else {
+          alert("You have already liked this post.");
+        }
+      });
+
+      // Logout functionality
       const auth = localStorage.getItem("auth");
       const user = localStorage.getItem("userEmail");
       const loginL = document.getElementById("login1");
       const logoutL = document.getElementById("logout1");
-      const parentContainer = document.querySelector(".post-container")
-
-      window.addEventListener("load", () => {
-       const blogsData = JSON.parse(localStorage.getItem("blogs"))
-       const clickedBlog = JSON.parse(localStorage.getItem("clickedBlog"))
-       const specificBlog = blogsData.find(blog => blog.title === clickedBlog)
-       const divH1 = document.createElement("h1");
-       divH1.textContent =  specificBlog.title;
-       divH1.classList.add("head-title")
-       parentContainer.appendChild(divH1);
-       const divP = document.createElement("p");
-       divP.textContent =  specificBlog.content;
-      //  divP.classList.add("head-title")
-       parentContainer.appendChild(divP);
-       const divImg = document.createElement("img");
-       divImg.src =  specificBlog.image;
-       divImg.classList.add("head-img")
-       parentContainer.appendChild(divImg);
-       
-       
-       console.log(specificBlog)
-      })
 
       logoutL.addEventListener("click", () => {
         localStorage.setItem("userEmail", "");
         window.location.reload();
       });
+
       if (auth) {
         window.location.href = "/dashboard";
       }
+
       if (user) {
         loginL.style.display = "none";
         logoutL.style.display = "block";
       }
+
+      // Render comments and likes count on page load
+      renderComments();
+      const postId = localStorage.getItem("clickedBlog");
+      const likesCount = localStorage.getItem(`likesCount_${postId}`);
+      if (likesCount) {
+        document.querySelector(".likes-count").innerText =
+          likesCount + " Likes";
+      }
+
+      // Retrieve blog data from local storage and display it
+      window.addEventListener("load", () => {
+        const blogsData = JSON.parse(localStorage.getItem("blogs"));
+        const clickedBlog = JSON.parse(localStorage.getItem("clickedBlog"));
+        const specificBlog = blogsData.find(
+          (blog) => blog.title === clickedBlog
+        );
+        const parentContainer = document.querySelector(".header-content");
+
+        const divH1 = document.querySelector(".header-title");
+        divH1.textContent = specificBlog.title;
+
+        const divImg = document.querySelector(".header-img");
+        divImg.src = specificBlog.image;
+        divImg.alt = specificBlog.title;
+
+        const parentContentContainer =
+          document.querySelector(".post-container");
+
+        const divP = document.createElement("p");
+        divP.classList.add("post-text");
+        divP.textContent = specificBlog.content;
+        parentContentContainer.appendChild(divP);
+      });
     </script>
     <script src="./assets/index.js"></script>
   </body>

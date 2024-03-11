@@ -90,7 +90,7 @@
             const decodedToken = parseJwt(data.token);
 
             if (decodedToken.isAdmin) {
-              window.location.href = "../dashboard/index.html";
+               window.location.href = "../dashboard/index.html";
             } else {
               window.location.href = "../blog.html";
             }
@@ -129,10 +129,10 @@
               throw new Error("Failed to register");
             }
 
-            alert("Registration successful"); // Display success message to the user
+            alert("Registration successful");
           } catch (error) {
             console.error("Registration error:", error);
-            alert("Failed to register. Please try again."); // Display error message to the user
+            alert("Failed to register. Please try again.");
           }
         });
       function parseJwt(token) {

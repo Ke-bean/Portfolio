@@ -579,15 +579,15 @@ header.shadow .logo{
         messages.style.display="none";
         // subscribers.style.display="flex";
         })
-        const auth=localStorage.getItem("auth");
-        if(auth!="loggedin"){
-            window.location.href = "../assets/auth.html";
-        }
-        const logoutBtn=document.querySelector(".logout");
-        logoutBtn.addEventListener("click",()=>{
-            localStorage.setItem("auth", "");
-            window.location.href = "../";
-        })
+        // const auth=localStorage.getItem("auth");
+        // if(auth!="loggedin"){
+        //     window.location.href = "../assets/auth.html";
+        // }
+        // const logoutBtn=document.querySelector(".logout");
+        // logoutBtn.addEventListener("click",()=>{
+        //     localStorage.setItem("auth", "");
+        //     window.location.href = "../";
+        // })
         //js for blog
         let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
 
