@@ -87,10 +87,12 @@
             }
 
             const data = await response.json();
+            JSON.stringify(localStorage.setItem("token", data));
             const decodedToken = parseJwt(data.token);
+            JSON.stringify(localStorage.setItem("loggedUser", decodedToken));
 
             if (decodedToken.isAdmin) {
-               window.location.href = "../dashboard/index.html";
+              window.location.href = "./dashboard/index.html";
             } else {
               window.location.href = "../blog.html";
             }

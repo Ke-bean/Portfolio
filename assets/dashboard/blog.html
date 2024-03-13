@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+
+      .add-blog-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .add-blog-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="file"],
+      input[type="text"],
+      textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      input[type="file"] {
+        padding: 8px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="add-blog-container">
+      <h1>Add Blog</h1>
+      <form id="blogForm" class="new-blog-form">
+        <input type="text" name="title" placeholder="Title" required /><br />
+        <textarea
+          name="description"
+          placeholder="Description"
+          required
+        ></textarea
+        ><br />
+        <input type="text" name="author" placeholder="Author" required /><br />
+        <input type="file" name="authorImage" accept="image/*" required /><br />
+        <input type="file" name="blogImage" accept="image/*" required /><br />
+        <button type="submit" id="create_blog_btn">Create Blog</button>
+      </form>
+      <div id="message"></div>
+    </div>
+    <script>
+      const form = document.getElementById("blogForm");
+      const messageDiv = document.getElementById("message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        console.log(Array.from(formData));
+
+        try {
+          const response = await fetch(
+            "https://portfoliobe-tbi2.onrender.com/blogs",
+            {
+              method: "POST",
+              headers: {
+                "x-auth-token":
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWRmNDAzMjYzNzY1YjRmY2U2OTg2NDgiLCJlbWFpbCI6ImNoZW5xaXVhQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMDM2OTc5NH0.7toDFuJN4a_9MFIRbACxbrqObep-CfyRuGi9905IZhw",
+              },
+              body: formData,
+            }
+          );
+
+          console.log(response);
+          const data = await response.json();
+          console.log("New blog created:", data);
+          messageDiv.textContent = "Blog created successfully";
+          messageDiv.style.color = "green";
+        } catch (error) {
+          console.log("Error creating blog:", error);
+          messageDiv.textContent = "Error creating blog: " + error.message;
+          messageDiv.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

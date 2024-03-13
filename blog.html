@@ -1,135 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/blog.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <title>Kebean-Blog</title>
-  </head>
-  <body>
-    <header>
-      <div class="nav container">
-        <a href="#" class="logo">Kebean</a>
-        <a href="assets/auth.html" class="login" id="login1">Login</a>
-        <a href="" class="login red" id="logout1" style="display: none"
-          >Logout</a
-        >
-      </div>
-    </header>
-    <section class="home" id="home">
-      <div class="home-text container">
-        <a href="index.html" class="back-home">Back Home</a>
-        <h2 class="home-title">Welcome To my Blog</h2>
-        <span class="home-subtitle">
-          Discover endless inspiration on my blog. <br />Join the journey
-          today!</span
-        >
-      </div>
-    </section>
-    <section class="post container">
-      <div class="post-box">
-        <img
-          src="./assets/images/async-await-img.png"
-          alt=""
-          class="post-img"
-        />
-        <a href="posts.html" class="post-title"
-          >Javascript Async/Await:Learn ES6 Javascript Async/Await syntax in
-          less than 5min.</a
-        >
-        <span class="post-date">April 5,2023</span>
-        <p class="post-description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
-          aliquam?
-        </p>
-        <div class="profile">
-          <img src="./assets/images/Kebean.jpg" alt="" class="profile-img" />
-          <div class="profile-name">Kebean Elie</div>
-        </div>
-      </div>
-      <div class="post-box">
-        <img src="./assets/images/Promies Js-img.jpg" alt="" class="post-img" />
-        <a href="posts.html" class="post-title"
-          >Javascript Promises: Learn all about Javascript promises in less than
-          5 min</a
-        >
-        <span class="post-date">April 5,2023</span>
-        <p class="post-description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
-          aliquam?
-        </p>
-        <div class="profile">
-          <img src="./assets/images/Kebean.jpg" alt="" class="profile-img" />
-          <div class="profile-name">Kebean Elie</div>
-        </div>
-      </div>
-      <div class="post-box">
-        <img
-          src="./assets/images/Form-Validation-UX-img.webp"
-          alt=""
-          class="post-img"
-        />
-        <a href="posts.html" class="post-title"
-          >Form validation: Learn Javascript form validation</a
-        >
-        <span class="post-date">April 5,2023</span>
-        <p class="post-description">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
-          aliquam?
-        </p>
-        <div class="profile">
-          <img src="./assets/images/Kebean.jpg" alt="" class="profile-img" />
-          <div class="profile-name">Kebean Elie</div>
-        </div>
-      </div>
-    </section>
-    <script>
-      const auth = localStorage.getItem("auth");
-      const user = localStorage.getItem("userEmail");
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/blog.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Kebean-Blog</title>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <a href="#" class="logo">Kebean</a>
+      <a href="assets/auth.html" class="login" id="login1">Login</a>
+      <a href="" class="login red" id="logout1" style="display: none">Logout</a>
+    </div>
+  </header>
+  <section class="home" id="home">
+    <div class="home-text container">
+      <a href="index.html" class="back-home">Back Home</a>
+      <h2 class="home-title">Welcome To my Blog</h2>
+      <span class="home-subtitle">Discover endless inspiration on my blog. <br />Join the journey today!</span>
+    </div>
+  </section>
+  <section class="post container" id="blogsContainer">
+    <!-- Blog posts will be dynamically added here -->
+  </section>
+  <script>
+    window.addEventListener("load", async () => {
       const loginL = document.getElementById("login1");
       const logoutL = document.getElementById("logout1");
-      logoutL.addEventListener("click", () => {
-        localStorage.setItem("userEmail", "");
-        window.location.reload();
-      });
-      if (auth) {
-        window.location.href = "/dashboard";
-      }
+
+      // Check if the user is logged in and update UI accordingly
+      const user = localStorage.getItem("userEmail");
       if (user) {
         loginL.style.display = "none";
         logoutL.style.display = "block";
       }
-      window.addEventListener("load", () => {
-        const blogsData = localStorage.getItem("blogs");
-        const myBlogs = JSON.parse(blogsData);
-        myBlogs.forEach((item) => {
-          const parentElemenet = document.querySelector(".post");
-          const renderComponent = document.querySelector(".post-box");
+
+      try {
+        // Fetch blog posts from the backend
+        const blogsResponse = await fetch("https://portfoliobe-tbi2.onrender.com/blogs");
+        const blogsData = await blogsResponse.json();
+        const blogsContainer = document.getElementById("blogsContainer");
+
+        // Iterate through the fetched blog data and render them on the page
+        blogsData.forEach((blog) => {
+          const renderComponent = document.createElement("div");
+          renderComponent.classList.add("post-box");
+
           const divImage = document.createElement("img");
           divImage.classList.add("post-img");
-          divImage.src = item.image;
+          divImage.src = `https://portfoliobe-tbi2.onrender.com/${blog.blogImage}`; // Check if the path is correct
+
           const aTag = document.createElement("a");
-          aTag.innerHTML = item.title;
+          aTag.innerHTML = blog.title;
           aTag.classList.add("post-title");
           aTag.href = "./posts.html";
-          aTag.addEventListener("click", () => {
-            localStorage.setItem("clickedBlog", JSON.stringify(item.title));
-            console.log(item.title);
-          });
+
+          const postDate = document.createElement("span");
+          postDate.classList.add("post-date");
+          postDate.textContent = new Date(blog.postedDate).toLocaleDateString(); // Convert the postedDate to a readable format
+
+          const authorImage = document.createElement("img");
+          authorImage.classList.add("author-img");
+          authorImage.src = `https://portfoliobe-tbi2.onrender.com/${blog.authorImage}`; // Check if the path is correct
+
+          const authorName = document.createElement("div");
+          authorName.classList.add("author-name");
+          authorName.textContent = `By ${blog.author}`;
+
           const content = document.createElement("p");
           content.classList.add("post-description");
-          content.textContent = item.content;
+          content.textContent = blog.description;
+
           renderComponent.appendChild(divImage);
           renderComponent.appendChild(aTag);
+          renderComponent.appendChild(postDate);
+          renderComponent.appendChild(authorImage);
+          renderComponent.appendChild(authorName);
           renderComponent.appendChild(content);
-          // parentElemenet.appendChild(renderComponent);
+
+          blogsContainer.appendChild(renderComponent);
         });
-      });
-    </script>
-    <script src="./assets/index.js"></script>
-  </body>
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    });
+  </script>
+  <script src="./assets/index.js"></script>
+</body>
 </html>
