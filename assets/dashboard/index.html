@@ -197,7 +197,6 @@
                     if (!response.ok) {
                         throw new Error("Failed to delete blog");
                     }
-                    // Remove the deleted blog from the UI
                     item.remove();
                 } catch (error) {
                     console.error("Error deleting blog:", error);
