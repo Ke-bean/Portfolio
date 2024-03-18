@@ -219,3 +219,4 @@ const isValidEmail = email => {
   const pattern = /\S+@\S+\.\S+/g;
   return pattern.test(String(email).toLowerCase())
 }
+

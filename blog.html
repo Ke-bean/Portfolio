@@ -30,8 +30,7 @@
         >
       </div>
     </section>
-    <section class="post container" id="blogsContainer">
-    </section>
+    <section class="post container" id="blogsContainer"></section>
     <script>
       window.addEventListener("load", async () => {
         const loginL = document.getElementById("login1");
@@ -56,18 +55,19 @@
 
             const divImage = document.createElement("img");
             divImage.classList.add("post-img");
-            divImage.src = `https://portfoliobe-tbi2.onrender.com/${blog.blogImage}`; 
+            divImage.src = `https://portfoliobe-tbi2.onrender.com/${blog.blogImage}`;
 
             const aTag = document.createElement("a");
             aTag.innerHTML = blog.title;
             aTag.classList.add("post-title");
-            aTag.href = "./posts.html";
-
+            aTag.href = `./posts.html?id=${blog._id}&title=${encodeURIComponent(
+              blog.title
+            )}&description=${encodeURIComponent(blog.description)}`;
             const postDate = document.createElement("span");
             postDate.classList.add("post-date");
             postDate.textContent = new Date(
               blog.postedDate
-            ).toLocaleDateString(); 
+            ).toLocaleDateString();
             const content = document.createElement("p");
             content.classList.add("post-description");
             content.textContent = blog.description;

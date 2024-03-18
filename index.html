@@ -276,5 +276,44 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".contact-form");
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+
+          const payload = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            message: formData.get("message"),
+          };
+
+          try {
+            const response = await fetch(
+              "https://portfoliobe-tbi2.onrender.com/userInquiry",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+              }
+            );
+
+            if (response.ok) {
+              form.reset();
+            } else {
+              throw new Error("Failed to send message inquiry");
+            }
+          } catch (error) {
+            console.error("Error sending message inquiry:", error);
+            alert("Failed to send message. Please try again later.");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

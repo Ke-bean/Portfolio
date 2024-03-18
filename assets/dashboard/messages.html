@@ -295,22 +295,22 @@
       <div class="main">
         <div class="message-card">
           <div class="message-info">
-            <div class="sender">John Doe</div>
-            <div class="time">10:30 AM</div>
+            <div class="sender">Kebean</div>
+            <div class="time">3/18/2024, 2:54:38 AM</div>
           </div>
           <div class="message-content">
-            <p>Hello, how are you?</p>
+            <p>Bite se?</p>
           </div>
           <button class="reply-btn">Reply</button>
         </div>
 
         <div class="message-card">
           <div class="message-info">
-            <div class="sender">Jane Doe</div>
-            <div class="time">11:00 AM</div>
+            <div class="sender">Chico Kabera</div>
+            <div class="time">3/18/2024, 2:54:38 AM</div>
           </div>
           <div class="message-content">
-            <p>I'm doing fine, thank you! How about you?</p>
+            <p>I think I have an interesting project we can work together?</p>
           </div>
           <button class="reply-btn">Reply</button>
         </div>
@@ -318,5 +318,58 @@
     </div>
 
     <script src="./index.js"></script>
+    <script>
+      window.addEventListener("load", async () => {
+        try {
+          const response = await fetch(
+            "https://portfoliobe-tbi2.onrender.com/userInquiry"
+          );
+          const inquiries = await response.json();
+
+          const main = document.querySelector(".main");
+          inquiries.forEach((inquiry, index) => {
+            const messageCard = document.createElement("div");
+            messageCard.classList.add("message-card");
+
+            const messageInfo = document.createElement("div");
+            messageInfo.classList.add("message-info");
+
+            const sender = document.createElement("div");
+            sender.classList.add("sender");
+            sender.textContent = inquiry.name;
+
+            const time = document.createElement("div");
+            time.classList.add("time");
+            const createdAt = new Date(inquiry.createdAt);
+            time.textContent = createdAt.toLocaleString();
+
+            messageInfo.appendChild(sender);
+            messageInfo.appendChild(time);
+
+            const messageContent = document.createElement("div");
+            messageContent.classList.add("message-content");
+            messageContent.textContent = inquiry.message;
+
+            const replyButton = document.createElement("button");
+            replyButton.classList.add("reply-btn");
+            replyButton.textContent = "Reply";
+
+            replyButton.addEventListener("click", () => {
+              const email = inquiries[index].email;
+              const mailtoLink = `mailto:${email}`;
+              window.open(mailtoLink);
+            });
+
+            messageCard.appendChild(messageInfo);
+            messageCard.appendChild(messageContent);
+            messageCard.appendChild(replyButton);
+
+            main.appendChild(messageCard);
+          });
+        } catch (error) {
+          console.error("Error fetching and displaying user inquiries:", error);
+        }
+      });
+    </script>
   </body>
 </html>
