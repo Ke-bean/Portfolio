@@ -46,6 +46,9 @@
     </section>
 
     <script>
+      const auth = localStorage.getItem("auth");
+      const user = localStorage.getItem("userEmail");
+      const loginL = document.getElementById("login1");
       document
         .querySelector(".comment-submit")
         .addEventListener("click", async () => {
@@ -225,6 +228,19 @@
         localStorage.removeItem("accessToken");
         window.location.reload();
       });
+       logoutL.addEventListener("click", () => {
+        localStorage.setItem("userEmail", "");
+        window.location.reload();
+      });
+
+      if (auth) {
+        window.location.href = "/dashboard";
+      }
+
+      if (user) {
+        loginL.style.display = "none";
+        logoutL.style.display = "block";
+      }
 
       async function renderData() {
         const postId = new URLSearchParams(window.location.search).get("id");

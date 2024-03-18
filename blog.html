@@ -32,6 +32,21 @@
     </section>
     <section class="post container" id="blogsContainer"></section>
     <script>
+      const auth = localStorage.getItem("auth");
+      const user = localStorage.getItem("userEmail");
+      const loginL = document.getElementById("login1");
+      const logoutL = document.getElementById("logout1");
+         logoutL.addEventListener("click", () => {
+        localStorage.setItem("userEmail", "");
+        window.location.reload();
+      });
+      if (auth) {
+        window.location.href = "/dashboard";
+      }
+      if (user) {
+        loginL.style.display = "none";
+        logoutL.style.display = "block";
+      }
       window.addEventListener("load", async () => {
         const loginL = document.getElementById("login1");
         const logoutL = document.getElementById("logout1");
